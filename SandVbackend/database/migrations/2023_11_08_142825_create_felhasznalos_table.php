@@ -15,7 +15,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('felhasznalo', function (Blueprint $table) {
+        Schema::create('felhasznalos', function (Blueprint $table) {
             $table->id('userID'); 
             $table->string('felhasználónév'); 
             $table->string('jelszó'); 
@@ -26,7 +26,7 @@ return new class extends Migration
         }); 
     
         // Beillesztünk néhány alapértelmezett felhasználót.
-        DB::table('felhasznalo')->insert([
+        DB::table('felhasznalos')->insert([
             ['felhasználónév' => 'teszt1', 'jelszó' => 'jelszo1', 'email' => 'teszt1@example.com'],
             ['felhasználónév' => 'teszt2', 'jelszó' => 'jelszo2', 'email' => 'teszt2@example.com'],
             ['felhasználónév' => 'teszt3', 'jelszó' => 'jelszo3', 'email' => 'teszt3@example.com'],

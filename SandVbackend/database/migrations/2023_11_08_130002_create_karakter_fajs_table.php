@@ -15,7 +15,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Karakterfaj', function (Blueprint $table) {
+        Schema::create('karakter_fajs', function (Blueprint $table) {
             $table->string('Fajnév')->primary();
             $table->binary('icon')->nullable();
             $table->binary('kép')->nullable();
@@ -29,7 +29,7 @@ return new class extends Migration
         });
 
 
-        DB::table('Karakterfaj')->insert([
+        DB::table('karakter_fajs')->insert([
             [
                 'Fajnév' => 'Dwarf',
                 'icon' => 'dwarf_icon.jpg',

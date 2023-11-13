@@ -8,8 +8,16 @@ use Illuminate\Support\Facades\Validator;
 
 class karakterfajController extends Controller
 {
+
+    public function osszes()
+    {
+        $fajok = KarakterFaj::all();
+        return response()->json($fajok);;
+
+    }
     public function storeKarakterFaj(Request $request)
 {
+   
     $validator = Validator::make($request->all(), [
         'Fajnév' => 'required|max:255|unique:karakterfaj,Fajnév',
         'icon' => 'nullable',

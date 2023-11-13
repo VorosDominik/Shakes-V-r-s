@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Validator;
 
 class FelhasznaloController extends Controller
 {
+    public function osszes()
+    {
+        $FH = Felhasznalo::all();
+        return response()->json($FH);;
+
+    }
     public function storeFelhasznalo(Request $request)
 {
     // Az adatok validálása

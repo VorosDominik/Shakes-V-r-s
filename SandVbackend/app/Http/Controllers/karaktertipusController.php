@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Validator;
 
 class karaktertipusController extends Controller
 {
+    public function osszes()
+    {
+        $Ktip = KarakterTipusok::all();
+        return response()->json($Ktip);;
+
+    }
     public function storeKarakterTipus(Request $request)
 {
     $validator = Validator::make($request->all(), [

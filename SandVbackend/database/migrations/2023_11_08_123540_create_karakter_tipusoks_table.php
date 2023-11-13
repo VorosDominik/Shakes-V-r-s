@@ -15,7 +15,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('KarakterTipus', function (Blueprint $table) {
+        Schema::create('karakter_tipusoks', function (Blueprint $table) {
             $table->string('Tipusnév')->primary();
             $table->string('TamadasKeplet');
             $table->string('Főstat');
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('leiras');
             $table->timestamps();
         });
-        DB::table('KarakterTipus')->insert([
+        DB::table('karakter_tipusoks')->insert([
             [ 'Tipusnév' => 'Harcos',
             'TamadasKeplet' => 'erő * 2',
             'Főstat' => 'erő',

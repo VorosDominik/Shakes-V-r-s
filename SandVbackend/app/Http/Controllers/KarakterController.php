@@ -10,7 +10,15 @@ use App\Models\Karakter;
 use Illuminate\Support\Facades\Validator;
 
 class KarakterController extends Controller
+
 {
+    public function osszes()
+    {
+        $karakterek = Karakter::all();
+        return response()->json($karakterek);;
+
+    }
+
     public function storeKarakter(Request $request)
     {
         // Az adatok validálása

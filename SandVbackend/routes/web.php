@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\FelhasznaloController;
+use App\Http\Controllers\KarakterController;
+use App\Http\Controllers\karakterfajController;
+use App\Http\Controllers\karaktertipusController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +17,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Útvonal a Felhasználó létrehozásához
-Route::post('/felhasznalo/json', [FelhasznaloController::class, 'storeFelhasznalo'])->name('felhasznalo.json');
+Route::get('/', function () {
+    return view('welcome');
+});
 
-// Útvonal a Karakter létrehozásához
-Route::post('/karakter/json', [KarakterController::class, 'storeKarakter'])->name('karakter.json');
 
-// Útvonal a KarakterFaj létrehozásához
-Route::post('/karakterfaj/json', [KarakterFajController::class, 'storeKarakterFaj'])->name('karakterfaj.json');
 
 // Útvonal a KarakterTipus létrehozásához
-Route::post('/karaktertipus/json', [KarakterTipusController::class, 'storeKarakterTipus'])->name('karaktertipus.json');
+//Route::get('/karaktertipus/json', [karaktertipusController::class, 'storeKarakterTipus']);
+
+Route::get('/felhasznalo/osszes', [FelhasznaloController::class, 'osszes']);
+
+// Útvonal a Karakter létrehozásához
+Route::get('/karakter/osszes', [KarakterController::class, 'osszes']);
+
+// Útvonal a KarakterFaj létrehozásához
+Route::get('/karakterfaj/osszes', [karakterfajController::class, 'osszes']);
+
+// Útvonal a KarakterTipus létrehozásához
+Route::get('/karaktertipus/osszes', [karaktertipusController::class, 'osszes']);

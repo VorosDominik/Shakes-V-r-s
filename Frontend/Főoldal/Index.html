@@ -1,16 +1,16 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu" >
 <head>
   <meta charset="UTF-8">
-  <title>Shakes&Vörös</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  <link rel="stylesheet" href="/style.css">
-  <link rel="stylesheet" href="/Frontend/AltalanosCSS/Nav.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <title>Profil</title>
+  <link rel="stylesheet" href="/AltalanosCSS/Nav.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
 </head>
 <body>
-<!-- partial:index.partial.html -->
 <main>
 <div class="header">  
   <div class="header__logo">
@@ -19,36 +19,38 @@
   <nav class="navbar">
     <ul class="navbar__menu">
       <li class="navbar__item">
-        <a href="Index.html" class="navbar__link aktualis"><span>Főoldal</span></a>
+        <a href="/Főoldal/Index.html" class="navbar__link aktualis"><span>Főoldal</span></a>
       </li>
       <li class="navbar__item">
-        <a href="/Frontend/KarakterFormMVC+html/Kform.html" class="navbar__link"><span>Karakter létrehozás</span></a>        
+        <a href="/KarakterFormMVC+html/Kform.html" class="navbar__link "><span>Karakter létrehozás</span></a>        
       </li>
       <li class="navbar__item">
-        <a href="/Frontend/AdminKarakterekMVC+html/Admin.html" class="navbar__link"><span>Admin felület</span></a>        
+        <a href="/AdminKarakterekMVC+html/Admin.html" class="navbar__link  "><span>Admin felület</span></a>        
       </li>
       <li class="navbar__item">
-        <a href="/Frontend/FelhasznaloMVC+html/Felszanalo.html" class="navbar__link"><span>Profil</span></a>        
+        <a href="/FelhasznaloMVC+html/Felszanalo.html" class="navbar__link  "><span>Profil</span></a>        
       </li>
     </ul>
   </nav>
 </div>
 
 
-    <article>
-        <h1>patch 1.1.0:</h1>
-        <p>pillanatnyilag hol tartunk:<br>
-            karaktereket lehet létre hozni ezeket még nem lehet csapatba servezni a havi cél hogy a játékos egy felületen lássa a karaktereit
-            és képes legyen csapatba szervezni őket 
-            admin felület lássa a karakterek és a játékosokat egy egy táblázatban és képes legyen törölni őket
-            vagy aprób modositást végre hajtani (pl nevet módosítani ha a név opcén)
-        </p>
-        <p>dokumentáció : alap koncepció a felhasználó létre hozhat egy játékost a játékost
-        választhat majd vezértt és létrehozhat különböző tipusú karaktereket ezekböl csapatot alkotva képes lesz különböző szörnyek ellen harcolni és ettöl eszméletlen boldog les 
-        ez a játék egyáltalán nem kedves ha egy karakter életét veszíti akkor kalap kabát enyi meghalt
-        </p>
-    </article>
+<article>
+  <h1>patch 1.1.0:</h1>
+  <p>pillanatnyilag hol tartunk:<br>
+      karaktereket lehet létre hozni ezeket még nem lehet csapatba servezni a havi cél hogy a játékos egy felületen lássa a karaktereit
+      és képes legyen csapatba szervezni őket 
+      admin felület lássa a karakterek és a játékosokat egy egy táblázatban és képes legyen törölni őket
+      vagy aprób modositást végre hajtani (pl nevet módosítani ha a név opcén)
+  </p>
+  <p>dokumentáció : alap koncepció a felhasználó létre hozhat egy játékost a játékost
+  választhat majd vezértt és létrehozhat különböző tipusú karaktereket ezekböl csapatot alkotva képes lesz különböző szörnyek ellen harcolni és ettöl eszméletlen boldog les 
+  ez a játék egyáltalán nem kedves ha egy karakter életét veszíti akkor kalap kabát enyi meghalt
+  </p>
+</article>
 </main>
+
+ 
 
 </body>
 </html>

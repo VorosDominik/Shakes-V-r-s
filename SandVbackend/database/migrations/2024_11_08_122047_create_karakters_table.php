@@ -15,18 +15,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('karakter', function (Blueprint $table) {
-            $table->id('K-id');
+        Schema::create('karakters', function (Blueprint $table) {
+            $table->id('KID');
             $table->binary('Kép')->nullable();
             $table->string('Neve');
             $table->integer('NXP')->default(10);//szint lépéshez szükséges az az NEEDED XP
             $table->integer('AXP')->default(0);//Aktuális XP
             $table->unsignedBigInteger('Tulaj');
-            $table->foreign('Tulaj')->references('userID')->on('felhasznalo');
+            $table->foreign('Tulaj')->references('userID')->on('felhasznalos');
             $table->string('Faj');
-            $table->foreign('Faj')->references('Fajnév')->on('KarakterFaj');
+            $table->foreign('Faj')->references('Fajnév')->on('karakter_fajs');
             $table->string('Tipus');
-            $table->foreign('Tipus')->references('Tipusnév')->on('KarakterTipus');
+            $table->foreign('Tipus')->references('Tipusnév')->on('karakter_tipusoks');
             $table->integer('erő');
             $table->integer('ügyeség');
             $table->integer('intelligenci');
@@ -34,7 +34,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::table('karakter')->insert([
+        DB::table('karakters')->insert([
             [
                 'Kép' => 'karakter1.jpg',
                 'Neve' => 'Karakter 1',
