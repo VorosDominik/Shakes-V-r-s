@@ -1,0 +1,31 @@
+/* Alap táblázat stílus */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Cellák szegélye és szöveg középre igazítása */
+th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+}
+
+/* Fejléc háttérszíne és szövegszíne */
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Páros sorok háttérszínének beállítása */
+tr:nth-child(even) {
+    background-color: #c66060;
+}
+tr:nth-child(odd) {
+    background-color: #9b8787;
+}
+
+/* Egérrel való rámutatáskor a sor háttérszínének változtatása */
+tr:hover {
+    background-color: #ddd;
+}

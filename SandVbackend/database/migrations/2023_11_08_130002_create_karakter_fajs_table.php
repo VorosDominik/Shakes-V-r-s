@@ -15,10 +15,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('karakter_fajs', function (Blueprint $table) {
+        Schema::create('karakterfajs', function (Blueprint $table) {
             $table->string('Fajnév')->primary();
-            $table->binary('icon')->nullable();
-            $table->binary('kép')->nullable();
+            $table->string('icon')->nullable();
+            $table->string('kép')->nullable();
             $table->string('leiras');
             $table->integer('alaperő');
             $table->integer('alapeleterő');
@@ -29,7 +29,7 @@ return new class extends Migration
         });
 
 
-        DB::table('karakter_fajs')->insert([
+        DB::table('karakterfajs')->insert([
             [
                 'Fajnév' => 'Dwarf',
                 'icon' => 'dwarf_icon.jpg',

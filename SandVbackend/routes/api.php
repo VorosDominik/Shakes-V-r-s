@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\FelhasznaloController;
+use App\Http\Controllers\KarakterController;
+use App\Http\Controllers\karakterfajController;
+use App\Http\Controllers\karaktertipusController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +21,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/felhasznalo/osszes', [FelhasznaloController::class, 'osszes']);
+
+// Útvonal a Karakter létrehozásához
+Route::get('/karakter/osszes', [KarakterController::class, 'osszes']);
+
+// Útvonal a KarakterFaj létrehozásához
+Route::get('/karakterfaj/osszes', [karakterfajController::class, 'osszes']);
+
+// Útvonal a KarakterTipus létrehozásához
+Route::get('/karaktertipus/osszes', [karaktertipusController::class, 'osszes']);

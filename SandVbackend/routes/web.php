@@ -26,13 +26,3 @@ Route::get('/', function () {
 // Útvonal a KarakterTipus létrehozásához
 //Route::get('/karaktertipus/json', [karaktertipusController::class, 'storeKarakterTipus']);
 
-Route::get('/felhasznalo/osszes', [FelhasznaloController::class, 'osszes']);
-
-// Útvonal a Karakter létrehozásához
-Route::get('/karakter/osszes', [KarakterController::class, 'osszes']);
-
-// Útvonal a KarakterFaj létrehozásához
-Route::get('/karakterfaj/osszes', [karakterfajController::class, 'osszes']);
-
-// Útvonal a KarakterTipus létrehozásához
-Route::get('/karaktertipus/osszes', [karaktertipusController::class, 'osszes']);
