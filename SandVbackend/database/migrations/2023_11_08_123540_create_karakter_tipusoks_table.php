@@ -15,20 +15,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('karakter_tipusoks', function (Blueprint $table) {
+        Schema::create('karaktertipusoks', function (Blueprint $table) {
             $table->string('Tipusnév')->primary();
             $table->string('TamadasKeplet');
             $table->string('Főstat');
             $table->string('FelszerelésTipus');
-            $table->binary('icon')->nullable();
-            $table->binary('kép')->nullable();
+            $table->string('icon')->nullable();
+            $table->string('kép')->nullable();
             $table->integer('Tréningelterő');
             $table->integer('Tréningeltügyeség');
             $table->integer('Tréningeltinteligenci');
             $table->string('leiras');
             $table->timestamps();
         });
-        DB::table('karakter_tipusoks')->insert([
+        DB::table('karaktertipusoks')->insert([
             [ 'Tipusnév' => 'Harcos',
             'TamadasKeplet' => 'erő * 2',
             'Főstat' => 'erő',

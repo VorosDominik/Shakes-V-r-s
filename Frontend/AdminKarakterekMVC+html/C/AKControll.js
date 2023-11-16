@@ -16,7 +16,7 @@ export class AKController {
     
     
     
-    this.DatS.getAxiosData("http://127.0.0.1:8000/karakterfaj/osszes", this.adatokMegj, this.hibamegj);
+    this.DatS.getAxiosData("http://localhost:8000/api/karakter/osszes", this.adatokMegj, this.hibamegj);
   }
 
   adatokMegj(lista) {
