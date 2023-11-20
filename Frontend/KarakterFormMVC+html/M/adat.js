@@ -2,6 +2,7 @@ const Urlapleiro = {
   neve: {
     megj: "Karakter Neve:",
     type: "text",
+    Mname:"Kname",
     placeholder: "BüszkeBíró",
     value: "",
     regex: "^[A-Z][a-z]{2,15}$",
@@ -9,28 +10,32 @@ const Urlapleiro = {
   },
  
  
-  radio: {
+  Kfaj: {
     megj: "Válassz egy fajt",
     type: "radio",
     options: [
       {
-        label: "ORC",
+        label: "orc",
         value: "ORC",
+        image: "/Photos/iconS/orc-male.png" // A helyes útvonal
       },
       {
         label: "ELF",
         value: "ELF",
+        image: "/Photos/iconS/elf-feamel.png" // A helyes útvonal
       },
       {
         label: "Dwarf",
         value: "Dwarf",
+        image: "/Photos/iconS/dwarf-male.png" // Feltételezett helyes útvonal
       },
     ],
     valid: "Válassz egy fajt",
   },
 
-  radio2: {
+  KTipus: {
     megj: "Válassz egy Class-t",
+    
     type: "radio",
     options: [
       {

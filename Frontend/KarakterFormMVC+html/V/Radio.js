@@ -1,50 +1,59 @@
+// radio.js
 export class Radio {
-    #key;
-    #elemleiro = {};
     constructor(key, elemleiro, szuloelem) {
-        this.szuloelem = szuloelem;
-        this.#key = key;
-        this.#elemleiro = elemleiro;
+        this.$szuloelem = $(szuloelem);
+        this.key = key;
+        this.elemleiro = elemleiro;
 
-        this.#radioElem();
+        this.createRadioElement();
     }
 
-    #radioElem() {
-        let radioDiv = document.createElement("div");
-        radioDiv.className = "mb-3 mt-3";
+    createRadioElement() {
+        // A címke és a sor törés létrehozása és hozzáadása közvetlenül a szülőelemhez
+        let $label = $('<label>').text(this.elemleiro.megj);
+        let $br = $('<br>');
+        this.$szuloelem.append($label).append($br);
 
-        
-        let label = document.createElement("label");
-        label.textContent = this.#elemleiro.megj;
+        // A rádiógombok divjének létrehozása
+        let $radioDiv = $('<div>').addClass('mb-3 mt-3 sorba');
 
-        radioDiv.append(label);
+        this.elemleiro.options.forEach(option => {
+            let $radioLabelDiv = $('<div>').addClass('form-check form-check-inline');
+            let $input = $('<input>', {
+                type: this.elemleiro.type,
+                class: 'form-check-input',
+                id: `${this.key}-${option.value}`,
+                name: this.key,
+                value: option.value,
+                checked: option.checked
+            }).on('change', function() {
+                // Frissítjük a kiválasztott képek stílusát
+                $('img.radio-image').removeClass('radio-image-selected');
+                $(`img[for="${$(this).attr('id')}"]`).addClass('radio-image-selected');
+            });
 
-        for (const option of this.#elemleiro.options) {
-            let input = document.createElement("input");
-            input.type = this.#elemleiro.type;
-            input.className = "form-check-input";
-            input.id = `${this.#key}-${option.value}`;
-            input.name = this.#key;
-            input.value = option.value;
-
-            if (option.checked) {
-                input.checked = true;
+            let $optionLabel = $('<label>').addClass('form-check-label').attr('for', $input.attr('id'));
+            if (option.image) {
+                let $image = $('<img>', {
+                    src: option.image,
+                    alt: option.label,
+                    class: 'radio-image' + (option.checked ? ' radio-image-selected' : ''),
+                    style: 'cursor: pointer;'
+                }).on('click', function() {
+                    // Az input elem kiválasztása
+                    $input.prop("checked", true).trigger('change');
+                    $(this).addClass('radio-image-selected');
+                });
+                $optionLabel.append($image);
+            } else {
+                $optionLabel.append(option.label);
             }
 
-            let radioLabelDiv = document.createElement("div");
-            radioLabelDiv.className = "form-check";
+            $radioLabelDiv.append($input).append($optionLabel);
+            $radioDiv.append($radioLabelDiv);
+        });
 
-            let optionLabel = document.createElement("label");
-            optionLabel.className = "form-check-label";
-            optionLabel.htmlFor = input.id;
-            optionLabel.textContent = option.label;
-
-            radioLabelDiv.append(input);
-            radioLabelDiv.append(optionLabel);
-
-            radioDiv.append(radioLabelDiv);
-        }
-
-        this.szuloelem.append(radioDiv);
+        // A rádiógombok csoportjának hozzáadása a szülőelemhez
+        this.$szuloelem.append($radioDiv);
     }
 }

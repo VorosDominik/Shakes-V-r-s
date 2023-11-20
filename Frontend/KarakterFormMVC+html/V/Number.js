@@ -10,6 +10,7 @@ export class Number{
     }
 
     #numberElem() {
+       
         let txt = `
         <div class="mb-3 mt-3">
             <label for="${this.#key}" class="form-label">${this.#elemleiro.megj}:</label>

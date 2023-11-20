@@ -1,23 +1,33 @@
 
+
 body {
-  background:#f5f5f5;
-  background-size: cover;
-  background-position: center;
+  background: url('/Photos/dac65ca3-1a44-4a21-8692-e2702f0df5a5.webp') repeat center ;
+  
   font-family: "Open Sans", sans-serif;
 }
 main{
     margin-left: 10%;
     margin-right: 10%;
  
-    background-color:rgb(116, 0, 0);
+    background-color:rgb(180, 3, 3);
+   
 
-    padding-bottom: 800px;
+    padding-bottom: 8000px;
     border: 3px solid black;
 }
 article{
     padding: 10px;
+    font-family: "Merienda", "Lucida Handwriting", cursive,;
+    background-color:rgb(134, 3, 3);
+    padding: auto;
+    margin: 0px 10px 10px 10px;
+    color: rgb(145, 155, 38);
 }
 
+.belso{
+  padding: 100x;
+  margin: 100x;
+}
 
 
 .header {
@@ -92,8 +102,38 @@ padding: 0;
   transition: 500ms ease all;
 }
 
+/* radio */
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + img {
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+input[type="radio"]:checked + img {
+  border: 2px solid #00FF00; /* Zöld keret a kiválasztottnak */
+}
+
 .aktualis{
     color: red;
+}
+.radio-image {
+  width: 100px; /* vagy amilyen méretet szeretnél */
+  height: auto;
+  margin-right: 10px;
+  border: solid 1px silver;
+}
+/* CSS fájlban vagy a <head> elemben lévő <style> tagben */
+.sorba{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.radio-image-selected {
+  /* Kijelölt képek stílusa */
+  border: 3px solid green;
 }
 
 .navbar__item:first-child:nth-last-child(1):last-child:hover:before, .navbar__item:first-child:nth-last-child(1) ~ li:last-child:hover:before {

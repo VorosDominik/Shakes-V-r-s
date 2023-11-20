@@ -9,12 +9,13 @@ th, td {
     border: 1px solid #ddd;
     text-align: center;
     padding: 8px;
+    color:black;
 }
 
 /* Fejléc háttérszíne és szövegszíne */
 th {
     background-color: #4CAF50;
-    color: white;
+    color: rgb(14, 9, 9);
 }
 
 /* Páros sorok háttérszínének beállítása */
@@ -27,5 +28,6 @@ tr:nth-child(odd) {
 
 /* Egérrel való rámutatáskor a sor háttérszínének változtatása */
 tr:hover {
-    background-color: #ddd;
+    background-color: green;
+    opacity: 0.8;
 }

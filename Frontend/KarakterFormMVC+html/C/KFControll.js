@@ -10,6 +10,8 @@ constructor(){
     console.log("edig okés")
     this.UrlapModell= new Modell()
     this.UrlapView= new View($("#karaktergeneralas"),this.UrlapModell.leiro)
+    this.submitElem = $("#submit")
+ 
 }
 
 }
