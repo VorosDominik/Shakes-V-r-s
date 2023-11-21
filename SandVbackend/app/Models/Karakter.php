@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Karakter extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'Neve', 'Faj', 'Tulaj','Tipus', 'NXP',
+        'AXP', 'STR', 'AGI', 'INT', 'LUCK'
+    ];
+
     protected static function booted()
     {
         static::created(function ($karakter) {
@@ -15,6 +21,5 @@ class Karakter extends Model
             $felhasznalo->increment('karakterek_szama');
             $felhasznalo->save();
         });
-        
     }
 }

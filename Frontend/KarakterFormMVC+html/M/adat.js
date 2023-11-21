@@ -2,7 +2,7 @@ const Urlapleiro = {
   neve: {
     megj: "Karakter Neve:",
     type: "text",
-    Mname:"Kname",
+    Mname:"Neve",
     placeholder: "BüszkeBíró",
     value: "",
     regex: "^[A-Z][a-z]{2,15}$",
@@ -10,7 +10,7 @@ const Urlapleiro = {
   },
  
  
-  Kfaj: {
+ FAj: {
     megj: "Válassz egy fajt",
     type: "radio",
     options: [
@@ -33,7 +33,7 @@ const Urlapleiro = {
     valid: "Válassz egy fajt",
   },
 
-  KTipus: {
+  Tipus: {
     megj: "Válassz egy Class-t",
     
     type: "radio",
@@ -41,26 +41,22 @@ const Urlapleiro = {
       {
         label: "Harcos",
         value: "Harcos",
+        image: "/Photos/iconS/Warrior.png"
       },
       {
         label: "ijász",
         value: "ijász",
+        image: "/Photos/iconS/archer.png"
       },
       {
         label: "varázsló",
         value: "varázsló",
+        image: "/Photos/iconS/mage.png"
       },
     ],
     valid: "Válassz egy fajt",
   },
 
-
-  check: {
-    megj: "Vágod mindenben bennevagyok",
-    type: "checkbox",
-    checked: false,
-    valid: "A feltételeket el kell fogadni",
-  },
 };
 
 export default Urlapleiro;

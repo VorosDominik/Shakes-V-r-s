@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Felhasznalo extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'userID';
     protected $fillable = [
         'felhasználónév',
         'jelszó',

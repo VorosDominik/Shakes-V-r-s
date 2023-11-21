@@ -6,6 +6,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
+use function GuzzleHttp\default_user_agent;
+
 return new class extends Migration
 {
     /**
@@ -21,7 +23,7 @@ return new class extends Migration
             $table->string('Neve');
             $table->integer('NXP')->default(10);//szint lépéshez szükséges az az NEEDED XP
             $table->integer('AXP')->default(0);//Aktuális XP
-            $table->unsignedBigInteger('Tulaj');
+            $table->unsignedBigInteger('Tulaj')->default(1);
             $table->foreign('Tulaj')->references('userID')->on('felhasznalos');
             $table->string('Faj');
             $table->foreign('Faj')->references('Fajnév')->on('karakterfajs');
@@ -31,6 +33,8 @@ return new class extends Migration
             $table->integer('AGI')->default(0);
             $table->integer('INT')->default(0);
             $table->integer('LUCK')->default(rand(0, 10));
+            $table->timestamps();
+
        
         });
 

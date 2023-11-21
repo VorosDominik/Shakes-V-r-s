@@ -26,8 +26,12 @@ Route::get('/felhasznalo/osszes', [FelhasznaloController::class, 'osszes']);
 // Útvonal a Karakter létrehozásához
 Route::get('/karakter/osszes', [KarakterController::class, 'osszes']);
 
+
+Route::post('/karakter/hozzaAD', [KarakterController::class, 'hozzaad']);
+
 // Útvonal a KarakterFaj létrehozásához
 Route::get('/karakterfaj/osszes', [karakterfajController::class, 'osszes']);
 
 // Útvonal a KarakterTipus létrehozásához
 Route::get('/karaktertipus/osszes', [karaktertipusController::class, 'osszes']);
+
