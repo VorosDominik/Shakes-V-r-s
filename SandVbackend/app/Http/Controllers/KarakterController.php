@@ -17,6 +17,10 @@ class KarakterController extends Controller
         $karakterek = Karakter::all();
         return response()->json($karakterek);;
     }
+
+
+
+    
     public function hozzaad(Request $request)
     {
         // Validáld a kérésből származó adatokat a szükséges szabályok alapján.

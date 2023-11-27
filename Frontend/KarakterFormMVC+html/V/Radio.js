@@ -5,6 +5,9 @@ export class Radio {
         this.key = key;
         this.elemleiro = elemleiro;
 
+        // Egyedi osztály hozzáadása minden rádiógomb csoportnak
+        this.groupClass = 'radio-group-' + this.key;
+
         this.createRadioElement();
     }
 
@@ -14,8 +17,8 @@ export class Radio {
         let $br = $('<br>');
         this.$szuloelem.append($label).append($br);
 
-        // A rádiógombok divjének létrehozása
-        let $radioDiv = $('<div>').addClass('mb-3 mt-3 sorba');
+        // A rádiógombok divjének létrehozása, hozzáadva az egyedi osztályt
+        let $radioDiv = $('<div>').addClass('mb-3 mt-3 sorba ' + this.groupClass);
 
         this.elemleiro.options.forEach(option => {
             let $radioLabelDiv = $('<div>').addClass('form-check form-check-inline');
@@ -26,10 +29,11 @@ export class Radio {
                 name: this.key,
                 value: option.value,
                 checked: option.checked
-            }).on('change', function() {
-                // Frissítjük a kiválasztott képek stílusát
-                $('img.radio-image').removeClass('radio-image-selected');
-                $(`img[for="${$(this).attr('id')}"]`).addClass('radio-image-selected');
+            }).on('change', () => {
+                // Eltávolítjuk a kijelölt stílust minden képről a csoporton belül
+                $(`.${this.groupClass} img.radio-image`).removeClass('radio-image-selected');
+                // Hozzáadjuk a kijelölt stílust az aktuális kiválasztott képhez
+                $(`.${this.groupClass} img[for="${$input.attr('id')}"]`).addClass('radio-image-selected');
             });
 
             let $optionLabel = $('<label>').addClass('form-check-label').attr('for', $input.attr('id'));
@@ -38,11 +42,11 @@ export class Radio {
                     src: option.image,
                     alt: option.label,
                     class: 'radio-image' + (option.checked ? ' radio-image-selected' : ''),
-                    style: 'cursor: pointer;'
-                }).on('click', function() {
-                    // Az input elem kiválasztása
+                    style: 'cursor: pointer;',
+                    // Hozzáadjuk az egyedi azonosítót a képhez
+                    'for': `${this.key}-${option.value}`
+                }).on('click', () => {
                     $input.prop("checked", true).trigger('change');
-                    $(this).addClass('radio-image-selected');
                 });
                 $optionLabel.append($image);
             } else {

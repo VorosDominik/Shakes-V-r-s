@@ -17,10 +17,10 @@ constructor(){
 
     // Az adat, amit a kérés tartalmazni fog (pl. karakter adatai)
     const data = {
-        Neve: "Alma",
-        Tulaj:2,
-        Faj: "Orc",
-        Tipus: "Harcos"
+        "Neve": "Alma",
+        "Tulaj": "1",
+        "Faj": "Orc",
+        "Tipus": "Harcos"
     };
     console.log(data)
     

@@ -14,12 +14,5 @@ class Karakter extends Model
         'AXP', 'STR', 'AGI', 'INT', 'LUCK'
     ];
 
-    protected static function booted()
-    {
-        static::created(function ($karakter) {
-            $felhasznalo = Felhasznalo::find($karakter->felhasznalo_id);
-            $felhasznalo->increment('karakterek_szama');
-            $felhasznalo->save();
-        });
-    }
+   
 }
