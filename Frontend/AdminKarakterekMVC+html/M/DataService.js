@@ -4,22 +4,18 @@ class DataService {
   }
 
   getAxiosData(url, callback, errorCallback) {
-    axios
-      .get(url)
-      .then(function (response) {
-        // Logolás helyett lehet, hogy jobb lenne a választ közvetlenül feldolgozni
-        callback(response.data);
-      })
-      .catch(function (error) {
-        if (errorCallback) {
-          errorCallback(error);
-        } else {
-          console.error("Hiba történt az adatlekérés során", error);
-        }
-      })
-      .finally(function () {
-        // Itt lehet végezni olyan műveleteket, amik minden esetben szükségesek
-      });
+    axios.get(url)
+        .then(function (response) {
+         
+          callback(response.data)
+        })
+        .catch(function (error) {
+          
+        errorCallback(error);
+        })
+        .finally(function () {
+          // always executed
+        });
   }
 
   postAxiosData(url, data) {
@@ -37,27 +33,31 @@ class DataService {
       
   }
   deleteAxiosData(url, id) {
-    axios
-      .delete(`${url}/${id}`)
+    return axios.delete(`${url}/${id}`)
+        .then((response) => {
+            console.log("RESP", response);
+            // További logika, ha szükséges
+        })
+        .catch((error) => {
+            console.log("hiba", error);
+            // Hiba kezelése
+        });
+}
+putAxiosData(url, data) {
+  console.log(data);
+  console.log(`${url}`);
+  return new Promise((resolve, reject) => {
+    axios.put(`${url}`, data)
       .then((response) => {
         console.log("RESP", response);
+        resolve(response);
       })
       .catch((error) => {
         console.log("hiba", error);
+        reject(error);
       });
-  }
-  putAxiosData(url, data) {
-    console.log(data);
-    console.log(`${url}/${data.id}`);
-    axios
-      .put(`${url}/${data.id}`, data)
-      .then((response) => {
-        console.log("RESP", response);
-      })
-      .catch((error) => {
-        console.log("hiba", error);
-      });
-  }
+  });
+}
 }
 
 export default DataService;

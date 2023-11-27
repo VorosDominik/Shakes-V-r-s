@@ -8,9 +8,11 @@ const Urlapleiro = {
     regex: "^[A-Z][a-z]{2,15}$",
     valid: "Ha nagybetűvel kezdődik és legalább 3 karakterből, de legfeljebb 15 karakterből áll",
   },
+
+
  
  
- FAj: {
+  Faj: {
     megj: "Válassz egy fajt",
     type: "radio",
     options: [

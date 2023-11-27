@@ -37,5 +37,7 @@ class karakterfajController extends Controller
     $karakterFaj = KarakterFaj::create($validator->validated());
 
     return response()->json($karakterFaj);
+
+    
 }
 }

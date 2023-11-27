@@ -16,17 +16,29 @@ constructor(){
     const url = "http://localhost:8000/api/karakter/hozzaAD";
 
     // Az adat, amit a kérés tartalmazni fog (pl. karakter adatai)
-    const data = {
-        "Neve": "Alma",
-        "Tulaj": "1",
-        "Faj": "Orc",
-        "Tipus": "Harcos"
-    };
-    console.log(data)
+    this.submitElem.on("click", (event) => {
+        
+       
+        
+        let urlapadat = this.UrlapView.urlapadatokGyujtese();
+        console.log("ezek az adatok:", JSON.stringify(urlapadat));
+// vagy
+console.log("ezek az adatok:", urlapadat);
+
+            // Elküldjük az űrlap adatait a helyes URL-re
+            this.DataService.postAxiosData("http://localhost:8000/api/karakter/hozzaAD", {
+                "Neve": urlapadat.neve,
+                "Tulaj": 1,
+                "Faj": urlapadat.Faj,
+                "Tipus": urlapadat.Tipus
+               
+            });
+            console.log(urlapadat.Faj)
+            console.log(urlapadat.neve);
     
-    // Hívd meg a postAxiosData függvényt, hogy elküldje a POST kérést
-    this.DataService.postAxiosData(url, data);
-  
+       
+       
+    });
 
  
 }

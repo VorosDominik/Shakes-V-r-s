@@ -13,6 +13,7 @@ class Karakter extends Model
         'Neve', 'Faj', 'Tulaj','Tipus', 'NXP',
         'AXP', 'STR', 'AGI', 'INT', 'LUCK'
     ];
+    protected $primaryKey = 'KID';
 
    
 }

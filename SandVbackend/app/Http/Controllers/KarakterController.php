@@ -54,32 +54,50 @@ class KarakterController extends Controller
         return response()->json(['message' => 'Karakter létrehozva', 'karakter' => $karakter], 201);
     }
 
-    public function storeKarakter(Request $request)
-    {
-        // Az adatok validálása
-        $megfelel = Validator::make($request->all(), [
-            'nev' => 'required|max:255',
-            'faj' => 'required',
-            'tipus' => 'required',
-            'ero' => 'required|numeric',
-            'ugyesseg' => 'required|numeric',
-            'intelligencia' => 'required|numeric',
-            'szerencse' => 'required|numeric',
-            'felhasznalo_id' => 'required|exists:felhasznalok,id',
-        ]);
+    public function update(Request $request, $KID)
+{
+    $karakter = Karakter::find($KID);
 
-        // Ellenőrizzük, hogy vannak-e validációs hibák
-        if ($megfelel->fails()) {
-            return response()->json($megfelel->errors(), 422);
-        }
-
-        // Ha a validáció sikeres, hozzuk létre a karaktert
-        $karakter = new Karakter($megfelel->validated());
-
-        // Karakter mentése
-        $karakter->save();
-
-        // Visszaadni az összes karaktert JSON formátumban
-        return response()->json(Karakter::all());
+    if (!$karakter) {
+        return response()->json(['message' => 'Karakter nem található!'], 404);
     }
+
+    $validatedData = $request->validate([
+        'Neve' => 'required|string|max:255',
+        'Faj' => 'required|string|max:255',
+        'Tipus' => 'required|string|max:255',
+        'Tulaj' => 'required|exists:felhasznalos,userID', // Feltételezve, hogy van 'felhasznalos' tábla és 'userID' oszlop
+        'STR' => 'sometimes|integer',
+        'AGI' => 'sometimes|integer',
+        'INT' => 'sometimes|integer',
+        // Egyéb validációs szabályok...
+    ]);
+
+    // Módosítjuk a meglévő karakter adatait.
+    $karakter->update($validatedData);
+
+    return response()->json(['message' => 'Karakter frissítve', 'karakter' => $karakter]);
+}
+
+public function ezAkarakter($KID)
+{
+    $karakter = Karakter::find($KID);
+
+    if ($karakter) {
+        return response()->json($karakter);
+    } else {
+        return response()->json(['message' => 'Karakter nem található!'], 404);
+    }
+}
+    public function destroy($KID) {
+        $karakter = Karakter::where('KID', $KID)->first();
+    
+        if ($karakter) {
+            $karakter->delete();
+            return response()->json(['message' => 'Sikeres törlés!'], 200);
+        } else {
+            return response()->json(['message' => 'Karakter nem található!'], 404);
+        }
+    }
+    
 }

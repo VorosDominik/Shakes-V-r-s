@@ -28,10 +28,16 @@ Route::get('/karakter/osszes', [KarakterController::class, 'osszes']);
 
 
 Route::post('/karakter/hozzaAD', [KarakterController::class, 'hozzaad']);
+Route::delete('/Karakter/DELETE/{KID}', [KarakterController::class, 'destroy']);
+
+Route::get('/karakter/{KID}', [KarakterController::class, 'ezAkarakter']);
+
+Route::put('/karakter/{KID}', [KarakterController::class, 'update']);
 
 // Útvonal a KarakterFaj létrehozásához
 Route::get('/karakterfaj/osszes', [karakterfajController::class, 'osszes']);
 
 // Útvonal a KarakterTipus létrehozásához
 Route::get('/karaktertipus/osszes', [karaktertipusController::class, 'osszes']);
+
 

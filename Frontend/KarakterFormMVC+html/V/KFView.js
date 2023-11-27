@@ -5,7 +5,7 @@ import { Radio } from "./Radio.js";
 
 class View {
     #leiro = {};
-    #urlapadatok = {};
+   
 
     constructor(szulE, leiro) {
         this.#leiro = leiro;
@@ -15,7 +15,7 @@ class View {
         this.#urlaplétrehoz();
     }
     get adatok(){
-        return this.#urlapadatok
+        return this.urlapadatok
     }
 
     #urlaplétrehoz() {
@@ -40,37 +40,28 @@ class View {
         this.formelem.append("<input type='submit' id='submit' value='ok'>");
 
       
-        this.formelem.on('submit', (e) => {
-            e.preventDefault();
-            this.#urlapadatokGyujtese();
-        });
     }
+    
 
-    #urlapadatokGyujtese() {
-        
-
-        // Végigmegy az összes input elemen
+    urlapadatokGyujtese() {
+        this.urlapadatok = {}; // Nullázd le az adatokat minden egyes gyűjtés előtt
         this.formelem.find('input, select, textarea').each((index, elem) => {
             const element = $(elem);
-            const name = element.attr('name'); 
+            const name = element.attr('name');
             if (name) {
-             
                 if (element.is(':checkbox')) {
-                   
-                    this.#urlapadatok[name] = element.is(':checked');
+                    this.urlapadatok[name] = element.is(':checked');
                 } else if (element.is(':radio')) {
-                   
                     if (element.is(':checked')) {
-                        this.#urlapadatok[name] = element.val();
+                        this.urlapadatok[name] = element.val();
                     }
                 } else {
-                   
-                    this.#urlapadatok[name] = element.val();
+                    this.urlapadatok[name] = element.val();
                 }
             }
         });
-
-        console.log(this.#urlapadatok); 
+    
+        return this.urlapadatok;
     }
 }
 
