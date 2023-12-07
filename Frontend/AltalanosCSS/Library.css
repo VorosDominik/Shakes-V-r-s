@@ -1,0 +1,22 @@
+.hely{
+    margin-left: 100px;
+    display: flex;
+    flex-wrap: wrap;
+
+
+
+}
+.szebbszubmit{
+    padding: 10px;
+    text-align: center;
+    background-color: green;
+    border:solid 1px black;
+    margin-left: 319px;
+
+}
+.szebbszubmit:hover {
+    background-color: lightgreen; 
+}
+.szebbszubmit:active {
+    background-color:rgb(21, 40, 21); 
+}

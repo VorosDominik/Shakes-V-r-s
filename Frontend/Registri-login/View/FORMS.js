@@ -1,7 +1,8 @@
-import { Number } from "./Number.js";
-import { Texturlapelem } from "./Texturlapelem.js";
-import { Check } from "./Check.js";
-import { Radio } from "./Radio.js";
+import { Check } from "../../KarakterFormMVC+html/V/Check.js";
+import { Number } from "../../KarakterFormMVC+html/V/Number.js";
+import { Radio } from "../../KarakterFormMVC+html/V/Radio.js";
+import { Texturlapelem } from "../../KarakterFormMVC+html/V/Texturlapelem.js";
+
 
 class View {
     #leiro = {};
@@ -37,7 +38,7 @@ class View {
                     break;
             }
         }
-        this.formelem.append("<input type='submit' id='submit' class='szebbszubmit' value='ok'>");
+        this.formelem.append("<input type='submit' id='submit' class='szebbszubmit' value='bejelentkezes'>");
 
       
     }
